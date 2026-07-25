@@ -1,16 +1,20 @@
-const nomeusuario = document.getElementById("nome_usuario");
-const idadeusuario = document.getElementById("idade_usuario");
+const nomeusuario = document.getElementById("nome");
+const idadeusuario = document.getElementById("idade");
 
 function limitenumero () {
-    if(Number(idadeusuario.value >= 5)) {
-
-        return console.log ("velho");
-    }   
+    const idade = Number(idadeusuario.value);
+    if (idade >= 70) {
+        return "velho";
+    }
+    return "";
 }
 
 idadeusuario.addEventListener("input", () => {
     const resultado = limitenumero();
-    if(resultado) {
+    if (resultado) {
         console.log(resultado);
+        alert(resultado);
     }
 });
+
+
