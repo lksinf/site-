@@ -1,20 +1,26 @@
-const nomeusuario = document.getElementById("nome");
-const idadeusuario = document.getElementById("idade");
+const formulario = document.getElementById("dados_pessoais");
+const idade = document.getElementById("idade");
+const nome = document.getElementById("nome");
+const mensagem = document.getElementById("mensagem");
 
-function limitenumero () {
-    const idade = Number(idadeusuario.value);
-    if (idade >= 70) {
-        return "velho";
+function verificarIdade() {
+    const idadeValor = Number(idade.value);
+    if (idadeValor >= 64) {
+        return "Você é velho.";
     }
-    return "";
+    if (idadeValor >= 18) {
+        return "Você é maior de idade.";
+    }
+    return "Você é menor de idade.";
 }
 
-idadeusuario.addEventListener("input", () => {
-    const resultado = limitenumero();
-    if (resultado) {
-        console.log(resultado);
-        alert(resultado);
-    }
+formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const dados = {
+        nome: nome.value,
+        idade: idade.value
+    };
+    const texto = verificarIdade();
+    mensagem.textContent = texto;
+    console.log("Enviado apenas no botão:", dados, texto);
 });
-
-
