@@ -11,16 +11,35 @@ function verificarIdade() {
     if (idadeValor >= 18) {
         return "Você é maior de idade.";
     }
+    if (idadeValor === 0) {
+        return "voce não existe"
+    }
+
     return "Você é menor de idade.";
+}
+
+function verificarNome() {
+    const nomeDigitado = nome.value.trim().toLowerCase();
+    const nomeEsperado = "lucas";
+
+    if (nomeDigitado === nomeEsperado) {
+        return console.log("legaalll");
+    }
+
+    return console.log("nem tentou");
 }
 
 formulario.addEventListener("submit", (event) => {
     event.preventDefault();
+
     const dados = {
         nome: nome.value,
         idade: idade.value
     };
-    const texto = verificarIdade();
-    mensagem.textContent = texto;
-    console.log("Enviado apenas no botão:", dados, texto);
+
+    const textoIdade = verificarIdade();
+    const textoNome = verificarNome();
+
+    mensagem.textContent = `${textoIdade} ${textoNome}`;
+    console.log("Enviado:", dados, textoIdade, textoNome);
 });
