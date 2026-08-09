@@ -8,11 +8,11 @@ function verificarIdade() {
     if (idadeValor >= 64) {
         return "Você é velho.";
     }
-    if (idadeValor >= 18) {
+    else if (idadeValor >= 18) {
         return "Você é maior de idade.";
     }
-    if (idadeValor === 0) {
-        return "voce não existe"
+    else if (idadeValor === 0) {
+        return "Você não existe.";
     }
 
     return "Você é menor de idade.";
@@ -26,11 +26,31 @@ function verificarNome() {
         return console.log("legaalll");
     }
 
-    return console.log("nem tentou");
+    return console.log("f");
+}
+
+function numeroidade() {
+    if (Number(idade.value) < 0) {
+        alert("Idade inválida. Por favor, insira um valor positivo.");
+        formulario.reset();
+        return false;
+    }
+    return true;
+}
+
+function reconheceradm() {
+    if (nome.value.trim().toLowerCase() === "lucas the goat" && Number(idade.value) === 16) {
+        console.log("Administrador reconhecido.");
+    }
 }
 
 formulario.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (!numeroidade()) {
+        return;
+    }
+    reconheceradm();
 
     const dados = {
         nome: nome.value,
@@ -38,8 +58,10 @@ formulario.addEventListener("submit", (event) => {
     };
 
     const textoIdade = verificarIdade();
-    const textoNome = verificarNome();
+    const textonome = verificarNome();
 
-    mensagem.textContent = `${textoIdade} ${textoNome}`;
-    console.log("Enviado:", dados, textoIdade, textoNome);
+    mensagem.textContent = `${textoIdade} ${textonome}`;
+    console.log("Enviado:", dados, textoIdade, textonome);
 });
+ 
+numeroidade();
