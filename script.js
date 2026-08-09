@@ -23,10 +23,10 @@ function verificarNome() {
     const nomeEsperado = "lucas";
 
     if (nomeDigitado === nomeEsperado) {
-        return console.log("legaalll");
+        return ("legaalll");
     }
 
-    return console.log("f");
+    return ("f");
 }
 
 function numeroidade() {
@@ -40,7 +40,7 @@ function numeroidade() {
 
 function reconheceradm() {
     if (nome.value.trim().toLowerCase() === "lucas the goat" && Number(idade.value) === 16) {
-        console.log("Administrador reconhecido.");
+        return ("Administrador reconhecido.");
     }
 }
 
@@ -59,9 +59,9 @@ formulario.addEventListener("submit", (event) => {
 
     const textoIdade = verificarIdade();
     const textonome = verificarNome();
+    const textoadmin = reconheceradm();
 
-    mensagem.textContent = `${textoIdade} ${textonome}`;
-    console.log("Enviado:", dados, textoIdade, textonome);
+    mensagem.textContent = `${textoIdade} ${textonome} ${textoadmin}`;
+    console.log("Enviado:", dados, textoIdade, textonome, textoadmin);
 });
  
-numeroidade();
