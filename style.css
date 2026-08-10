@@ -60,4 +60,20 @@ main button {
     align-self: center;
 }
 
+div#loguin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgb(116, 114, 114);
+    border-radius: 10px; 
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-bottom: 40px;
+}
 
+div#mensagem {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
